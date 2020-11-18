@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class MainDB {
     private static Connection connection;
-    private static Statement stsm; // объект с помощью которого из приложения можно отправлять запрос непосредственно в базу
+    private static Statement stsm; //объект с помощью которого из приложения можно отправлять запрос непосредственно в базу
     private static PreparedStatement prstsm;
 
     public static void main(String[] args){
