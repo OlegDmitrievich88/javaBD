@@ -15,39 +15,36 @@ public class massiv {
         massRandom(mas4);
         massRandom(mas5);
         massRandom(mas6);
-        ArrayList<Integer> arr = new ArrayList<>();
-        ArrayList<Integer> arr1 = new ArrayList<>();
-        ArrayList<Integer> arr2 = new ArrayList<>();
-        ArrayList<Integer> arr3 = new ArrayList<>();
-        ArrayList<Integer> arr4 = new ArrayList<>();
-        masReturnNumberBeforFore(mas, arr);
-        masReturnNumberBeforFore(mas3, arr1);
-        masReturnNumberBeforFore(mas4, arr2);
-        masReturnNumberBeforFore(mas5, arr3);
-        masReturnNumberBeforFore(mas6, arr4);
+
         System.out.println(masReturnOneFore(mas1));
         System.out.println(masReturnOneFore(mas2));
         System.out.println(masReturnOneFore(mas));
     }
+//    @Test
+//    public void massiv(){
+//        int[] mas = {1, 2, 4, 4, 2, 3, 4, 1, 7};
+//        ArrayList<Integer> arr = new ArrayList<>();
+//        Assert.
+//    }
 
-    private static void massRandom(int[] mas3) {
+    public static void massRandom(int[] mas3) {
         for (int i = 0; i<= mas3.length-1; i++){
             mas3[i] = (int) (Math.random()*7);
         }
     }
 
-    private static boolean masReturnOneFore(int[] mas) {
+    public static boolean[] masReturnOneFore(int[] mas) {
         for (int i = 0; i<mas.length; i++){
             if(mas[i] == 1 || mas[i] == 4){
-                return true;
+                return new boolean[]{true};
             }
         }
 
-        return false;
+        return new boolean[]{false};
     }
 
-    private static void masReturnNumberBeforFore(int[] mas, ArrayList<Integer> arr) {
-
+    public static Object[] masReturnNumberBeforFore(int[] mas) {
+        ArrayList<Integer> arr = new ArrayList<>();
         for (int i = mas.length - 1; i >= 0; i--) {
            if(mas[i] != 4){
                 arr.add(mas[i]);
@@ -55,7 +52,11 @@ public class massiv {
                break;
            }
         }
+        if (arr.size() == mas.length){
+           throw new RuntimeException("No number fore");
+        }
         System.out.println(arr);
+        return arr.toArray();
     }
 }
 
